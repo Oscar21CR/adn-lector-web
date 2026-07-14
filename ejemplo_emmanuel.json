@@ -1,0 +1,90 @@
+{
+  "id": "emmanuel-quiros-20260713",
+  "fecha_generado": "2026-07-13",
+  "usuario": { "nombre": "Emmanuel Quirós", "correo": "emanuelquiros10@hotmail.com" },
+  "arquetipo": {
+    "nombre": "El Estratega Que Teme Su Propio Tablero",
+    "descripcion": "Releíste 'Cómo ganar amigos e influir sobre las personas' porque creés que 'los sistemas, las modas, la tecnología podrán cambiar, pero siempre hay humanos detrás de cada una de las cosas' — y lo que más te atrae de Suits no es el drama sino 'la capacidad de encontrar vacíos donde cualquier otra persona pensaría que no hay salida': llevás años estudiando cómo funciona el poder entre personas, pero todavía no lo estás usando en tu propio favor.",
+    "insight": "el 'qué dirán' que te frena no es miedo al fracaso — es miedo a que funcione y no saber qué hacer con eso"
+  },
+  "patrones": [
+    "· Casi no leés — y cuando lo hacés, es en silencio absoluto",
+    "· Absorbés sin marcar ni subrayar",
+    "· Releíste el mismo libro más de una vez — y fue uno de psicología aplicada a personas",
+    "· Dejás libros cuando 'se nota que tratan de estirar una idea'"
+  ],
+  "contraportada": {
+    "titulo": "El mapa que nadie más puede leer",
+    "descripcion": "Tenés la habilidad de ver lo que otros no ven: los vacíos, las conexiones, las salidas donde pareciera que no las hay. El problema no es que no sepás hacia dónde ir — es que no te terminás de dar permiso para ir."
+  },
+  "libros": {
+    "criterio_seleccion": "Cada uno de estos libros es denso en ideas y corto en páginas — porque ya aprendiste con Hábitos Atómicos que no tolerás el relleno.",
+    "items": [
+      {
+        "orden": 1, "titulo": "El hombre en busca de sentido", "autor": "Viktor Frankl",
+        "genero": "ensayo existencial / psicología", "paginas": "~130 páginas", "es_saga": false,
+        "frase_usuario": "cuál es nuestro propósito (si de verdad es que tenemos uno)",
+        "justificacion": "Esta frase tuya es exactamente la pregunta que Frankl se hizo sobreviviendo un campo de concentración. No es autoayuda. Es psicología pura, aplicada al límite de lo humano. 130 páginas que no tienen una sola de relleno.",
+        "nota_lectura": "Una noche, en silencio absoluto. Se lee de corrido.",
+        "links_compra": { "kindle": { "url": "https://www.amazon.com/s?k=El+hombre+en+busca+de+sentido+Viktor+Frankl&i=digital-text" }, "formato_fisico": { "precio": "Aprox ₡7.000 - ₡12.000" } }
+      },
+      {
+        "orden": 2, "titulo": "Zero to One", "autor": "Peter Thiel",
+        "genero": "ensayo tecnología / startups", "paginas": "~200 páginas", "es_saga": false,
+        "frase_usuario": "lo disruptivo genera controversia pero ayuda al avance de la humanidad",
+        "justificacion": "Vos ya lo sabés — lo dijiste cuando hablaste de cómo 'lo disruptivo genera controversia'. Este libro es la versión más honesta de cómo se piensa cuando se construye algo desde cero.",
+        "nota_lectura": "Perfecto para una sesión larga de fin de semana, en silencio.",
+        "links_compra": { "kindle": { "url": "https://www.amazon.com/s?k=Zero+to+One+Peter+Thiel&i=digital-text" }, "formato_fisico": { "precio": "Aprox ₡9.000 - ₡14.000" } }
+      },
+      {
+        "orden": 3, "titulo": "Sapiens: De animales a dioses", "autor": "Yuval Noah Harari",
+        "genero": "ensayo histórico / antropológico", "paginas": "~450 páginas", "es_saga": false,
+        "frase_usuario": "me encantaría poder tener todas las respuestas de cómo funciona el mundo",
+        "justificacion": "El libro más cercano a 'tener todas las respuestas de cómo funciona el mundo' que existe. Conecta tecnología, psicología, historia y espiritualidad en un solo arco.",
+        "nota_lectura": "El más largo — guardalo para semanas con sesiones regulares.",
+        "links_compra": { "kindle": { "url": "https://www.amazon.com/s?k=Sapiens+Yuval+Noah+Harari&i=digital-text" }, "formato_fisico": { "precio": "Aprox ₡12.000 - ₡18.000" } }
+      },
+      {
+        "orden": 4, "titulo": "Flow: La psicología de la experiencia óptima", "autor": "Mihaly Csikszentmihalyi",
+        "genero": "psicología / eficiencia", "paginas": "~300 páginas", "es_saga": false,
+        "frase_usuario": "que me recuerde mi potencial y cómo poder explotarlo de la mejor manera posible",
+        "justificacion": "Csikszentmihalyi lleva 40 años investigando cómo las personas entran en el estado donde su potencial se expresa sin fricción. No es motivacional — es científico.",
+        "nota_lectura": "Lento y deliberado — absorbé sin marcar, como es tu estilo.",
+        "links_compra": { "kindle": { "url": "https://www.amazon.com/s?k=Flow+Mihaly+Csikszentmihalyi&i=digital-text" }, "formato_fisico": { "precio": "Aprox ₡10.000 - ₡16.000" } }
+      },
+      {
+        "orden": 5, "titulo": "El arte de la guerra", "autor": "Sun Tzu",
+        "genero": "ensayo estratégico / filosófico", "paginas": "~100 páginas", "es_saga": false,
+        "frase_usuario": "la capacidad que tienen las personas de encontrar vacíos o opciones donde cualquier otra persona pensaría que no hay salida",
+        "justificacion": "Sun Tzu no escribe sobre guerra — escribe sobre cómo pensar cuando los recursos son limitados y el margen de error es cero. 100 páginas. Sin relleno. Cada línea es una idea.",
+        "nota_lectura": "Una sola sesión. En silencio. Con tiempo para quedarte pensando después.",
+        "links_compra": { "kindle": { "url": "https://www.amazon.com/s?k=El+arte+de+la+guerra+Sun+Tzu&i=digital-text" }, "formato_fisico": { "precio": "Aprox ₡5.000 - ₡9.000" } }
+      }
+    ]
+  },
+  "ruta_emocional": {
+    "intro": "Estás construyendo algo sin saber exactamente qué — esta secuencia empieza por el propósito, pasa por la estrategia, y termina en el estado mental donde todo eso se vuelve acción.",
+    "items": [
+      { "libro": "El hombre en busca de sentido", "transicion": "Te deja con una claridad brutal sobre qué importa y qué no, que te abre para pensar diferente en Zero to One." },
+      { "libro": "Zero to One", "transicion": "Te deja con el marco mental de quien construye desde cero, que te prepara para entender el cuadro completo en Sapiens." },
+      { "libro": "Sapiens", "transicion": "Te deja con una comprensión de cómo llegamos hasta acá, que hace que Flow se lea como el manual personal del siguiente paso." },
+      { "libro": "Flow", "transicion": "Te deja sabiendo exactamente cuándo y cómo funciona tu potencial, listo para recibir la precisión táctica de El arte de la guerra." },
+      { "libro": "El arte de la guerra", "transicion": "Cierra el ciclo: propósito, visión, contexto, estado mental, y estrategia." }
+    ]
+  },
+  "plan_lectura": {
+    "intro": "Casi no leés — y está bien. Este plan asume que una sesión por semana en silencio ya es un hábito real.",
+    "items": [
+      { "semanas": "1-2", "libro": "El hombre en busca de sentido", "paginas_sesion": 30, "momento": "noche", "condicion": "silencio absoluto" },
+      { "semanas": "3-6", "libro": "Zero to One", "paginas_sesion": 25, "momento": "fin de semana", "condicion": "silencio, sin interrupciones" },
+      { "semanas": "7-16", "libro": "Sapiens", "paginas_sesion": 25, "momento": "cuando tengas sesiones más largas", "condicion": "sin apuro" },
+      { "semanas": "17-23", "libro": "Flow", "paginas_sesion": 20, "momento": "noche entre semana", "condicion": "silencio" },
+      { "semanas": "24-25", "libro": "El arte de la guerra", "paginas_sesion": 25, "momento": "una sola sesión si podés", "condicion": "silencio total" }
+    ]
+  },
+  "cierre": "Tu pregunta grande — '¿hacia dónde debería orientar mi energía?' — no la responde ningún libro. Pero estos cinco juntos hacen algo mejor: te muestran cómo piensan las personas que ya decidieron. Empezá por Frankl. Son 130 páginas y una noche.",
+  "viral": {
+    "texto": "Emmanuel, probablemente tenés cerca a alguien igual — alguien que también tiene preguntas grandes y merece un mapa propio.",
+    "link_formulario": "https://holly-airplane-e18.notion.site"
+  }
+}

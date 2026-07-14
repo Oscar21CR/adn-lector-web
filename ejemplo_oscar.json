@@ -1,0 +1,89 @@
+{
+  "id": "655230f2-d51d-441c-9b51-60004181bbcb",
+  "fecha_generado": "2026-06-29",
+  "usuario": {
+    "nombre": "Oscar",
+    "correo": "oscar@ejemplo.com"
+  },
+  "arquetipo": {
+    "nombre": "El Cartógrafo de lo Cotidiano Infinito",
+    "descripcion": "Estás en un momento de construcción — no de lo que viene, sino de quién querés ser cuando llegues. La combinación de que tus libros más marcantes sean Contact y Stoner dice algo que quizás no habías puesto en palabras: buscás lo extraordinario dentro de lo ordinario, el cosmos en una vida aparentemente simple. Cuando pedís \"que me saque de la rutina, pero que al mismo tiempo me ponga los pies sobre la tierra\", estás describiendo exactamente lo que Stoner logró con una vida de profesor sin epopeyas, y lo que Contact logró con el universo como escenario de lo humano.",
+    "insight": "Algo que quizás no te habías dicho: no buscás respuestas sobre el universo, buscás que el universo te ayude a entender por qué la vida ordinaria duele y maravilla al mismo tiempo."
+  },
+  "busqueda": [
+    "Historias que conecten con el mundo real sin perder la capacidad de llevarte lejos — como en Contact, donde el cosmos era la excusa para hablar de fe, ciencia y conexión humana.",
+    "Ese \"valor de las pequeñas cosas\" puesto en palabras: lo cotidiano visto con una lupa que lo hace brillar sin volverlo cursi.",
+    "Claridad sin manual: querés que la claridad sobre tus objetivos llegue por la puerta trasera de una historia, no por el frente de un libro de autoayuda.",
+    "Libros completos en sí mismos — que no te pidan esperar tres tomos para entender algo. Una historia, un viaje, un cierre."
+  ],
+  "libros": {
+    "criterio_seleccion": "Nada de sagas ni trilogías abiertas, nada de autoayuda disfrazada de narrativa, nada de densidad académica — pero tampoco nada superficial. Como dejaste Foundation porque era largo y sin cierre propio, todos los libros elegidos son mundos completos en sí mismos.",
+    "items": [
+      {
+        "orden": 1,
+        "titulo": "La muerte de Ivan Ilyich",
+        "autor": "León Tolstói",
+        "paginas": "menos de 100 páginas",
+        "es_saga": false,
+        "frase_usuario": "Quiero descubrir qué me hace feliz y con un equilibrio entre vida y trabajo",
+        "justificacion": "Esta frase tuya lleva directamente a Ivan Ilyich, un hombre que vivió persiguiendo lo correcto — la carrera, el status, el mundo corporativo — y solo al final se preguntó si había vivido bien. Es breve, es demoledora, y no tiene una sola página de relleno.",
+        "nota_lectura": "Ideal para leerlo en silencio, de una sola vez si podés. Tené el cuaderno cerca."
+      },
+      {
+        "orden": 2,
+        "titulo": "El lobo estepario",
+        "autor": "Hermann Hesse",
+        "es_saga": false,
+        "frase_usuario": "Estoy enganchado con The Boys",
+        "justificacion": "Una serie donde el poder y la identidad se corrompen desde adentro. Harry Haller vive exactamente esa tensión: entre el hombre que quiere ser y el mundo que lo asfixia. Va a resonar con eso de \"dejar el mundo corporativo\" más que cualquier libro de productividad.",
+        "nota_lectura": "Funciona bien en ratos cortos — cada capítulo sostiene su propio peso. Con Radiohead de fondo en los momentos más densos."
+      },
+      {
+        "orden": 3,
+        "titulo": "Flowers for Algernon",
+        "autor": "Daniel Keyes",
+        "es_saga": false,
+        "frase_usuario": "Me encanta Interstellar",
+        "justificacion": "La razón por la que Interstellar te marcó probablemente no es la ciencia ficción en sí, sino lo que hace con lo humano dentro de ella. Este libro es eso en estado puro: un hombre que se somete a un experimento para volverse genio y descubre que la inteligencia no garantiza la felicidad.",
+        "nota_lectura": "Escrito como diario, en fragmentos cortos. Muy fácil de leer en ratos. Tiene cierre propio."
+      },
+      {
+        "orden": 4,
+        "titulo": "Todos los hombres son mortales",
+        "autor": "Simone de Beauvoir",
+        "es_saga": false,
+        "frase_usuario": "Me encanta el espacio, temas psicológicos, el sentido de la vida",
+        "justificacion": "Este libro pregunta qué pasaría si la muerte desapareciera. Un hombre inmortal que atraviesa siglos descubre que el sentido de la vida viene precisamente de su finitud. Conecta con tu fascinación por el tiempo y la existencia sin volverse un ensayo.",
+        "nota_lectura": "Funciona bien en Kindle o físico. Cada era histórica que atraviesa el protagonista tiene su propio ritmo."
+      },
+      {
+        "orden": 5,
+        "titulo": "El libro de los abrazos",
+        "autor": "Eduardo Galeano",
+        "es_saga": false,
+        "frase_usuario": "Quiero un libro que me haga ver esas pequeñas cosas de la vida que dan sentido",
+        "justificacion": "Este libro es exactamente eso. Son fragmentos brevísimos — historias de dos páginas que capturan momentos humanos con una precisión que duele bien. Completamente opuesto a la superficialidad que excluiste.",
+        "nota_lectura": "Ideal para espacios públicos — cada fragmento se sostiene solo. No necesitás hilo conductor para entrar y salir."
+      }
+    ]
+  },
+  "ruta_emocional": [
+    {"libro": "La muerte de Ivan Ilyich", "transicion": "Te deja en un estado de sacudida tranquila, una incomodidad que no duele sino que aclara — instala la pregunta fundamental."},
+    {"libro": "El lobo estepario", "transicion": "Te deja en disonancia creativa — algo no encaja, pero ese malestar es productivo. Abre el terreno para el experimento de Algernon."},
+    {"libro": "Flowers for Algernon", "transicion": "Te deja con una ternura difícil de explicar. Desde ahí, la inmortalidad de Beauvoir llega en el momento justo."},
+    {"libro": "Todos los hombres son mortales", "transicion": "Te deja pensando en el tiempo y la finitud de una manera que no asusta sino que da sentido."},
+    {"libro": "El libro de los abrazos", "transicion": "El cierre perfecto: después de todo ese viaje, Galeano te devuelve a lo concreto, a lo pequeño, a lo que siempre estuvo ahí."}
+  ],
+  "plan_lectura": [
+    {"semanas": "1-2", "libro": "La muerte de Ivan Ilyich", "paginas_sesion": 18, "momento": "noche", "condicion": "en silencio"},
+    {"semanas": "3-5", "libro": "El lobo estepario", "paginas_sesion": 20, "momento": "noche", "condicion": "con música"},
+    {"semanas": "6-8", "libro": "Flowers for Algernon", "paginas_sesion": 18, "momento": "día", "condicion": "espacios públicos"},
+    {"semanas": "9-12", "libro": "Todos los hombres son mortales", "paginas_sesion": 25, "momento": "noche", "condicion": "en silencio"},
+    {"semanas": "13-14", "libro": "El libro de los abrazos", "paginas_sesion": 0, "momento": "cualquiera", "condicion": "sin plan fijo"}
+  ],
+  "cierre": "Quiero un libro que me ayude, pero que no se sienta como teoría, que me haga ver esas pequeñas cosas de la vida que dan sentido. Eso no es una preferencia de lectura, Oscar — es una declaración de lo que necesitás ahora mismo. Todos los libros de esta lista van a darte eso, pero solo si les das el tiempo que le das a lo que ya amás. No los leas para aprender algo. Léelos para reconocerte.",
+  "viral": {
+    "texto": "Mencionaste que tu música ahora incluye Black Pumas y Señor Loop — dos bandas que no mucha gente tiene en el radar al mismo tiempo. Probablemente tenés cerca a alguien con un gusto igual de específico, que también merece su propio mapa.",
+    "link_formulario": "https://holly-airplane-e18.notion.site"
+  }
+}

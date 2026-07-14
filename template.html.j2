@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ADN Lector — {{ usuario.nombre }}</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=Manrope:wght@500;600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FBF6EC;
+    --paper-deep:#F2E8D6;
+    --card:#FFFFFF;
+    --ink:#241C14;
+    --muted:#8C7E68;
+    --line:#E7DCC4;
+
+    --c0:#8C4A6B;
+    --c1:#D96B43;
+    --c2:#3F7A77;
+    --c3:#3F5B8C;
+    --c4:#C98A2E;
+    --green:#4B6B4E;
+
+    --grad: linear-gradient(100deg, var(--c0), var(--c1) 55%, var(--c4));
+
+    --display:'Fraunces', serif;
+    --head:'Manrope', sans-serif;
+    --body:'Plus Jakarta Sans', sans-serif;
+    --mono:'IBM Plex Mono', monospace;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--body);
+    font-size:16.5px;
+    line-height:1.62;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:600px;margin:0 auto;padding:0 22px;}
+  a{color:inherit;}
+  :focus-visible{outline:2px solid var(--c1);outline-offset:3px;}
+  img,svg{display:block;max-width:100%;}
+
+  /* ============ HERO ============ */
+  .hero{padding:40px 0 26px;position:relative;}
+  .brandrow{display:flex;align-items:center;gap:8px;margin-bottom:34px;}
+  .brandrow svg{width:20px;height:20px;}
+  .brandrow span{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);}
+
+  .spines{
+    display:flex;
+    align-items:flex-end;
+    justify-content:center;
+    height:118px;
+    margin-bottom:30px;
+    gap:8px;
+  }
+  .spine{
+    width:34px;height:100px;border-radius:7px 7px 3px 3px;
+    box-shadow:0 10px 18px -10px rgba(36,28,20,.35);
+    opacity:0;
+    transform:translateY(16px) rotate(var(--rot,0deg));
+    animation:rise .6s ease forwards;
+  }
+  .spine:nth-child(1){background:var(--c0);--rot:-6deg;animation-delay:.05s;height:88px;}
+  .spine:nth-child(2){background:var(--c1);--rot:-2deg;animation-delay:.12s;height:108px;}
+  .spine:nth-child(3){background:var(--c2);--rot:0deg;animation-delay:.19s;height:118px;}
+  .spine:nth-child(4){background:var(--c3);--rot:3deg;animation-delay:.26s;height:100px;}
+  .spine:nth-child(5){background:var(--c4);--rot:7deg;animation-delay:.33s;height:84px;}
+  @keyframes rise{to{opacity:1;transform:translateY(0) rotate(var(--rot,0deg));}}
+
+  .hero h1{
+    font-family:var(--head);
+    font-weight:800;
+    font-size:14px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--muted);
+    text-align:center;
+    margin:0 0 10px;
+  }
+  .hero .name{
+    font-family:var(--display);
+    font-style:italic;
+    font-weight:500;
+    font-size:clamp(40px,11vw,54px);
+    text-align:center;
+    line-height:1;
+    margin:0 0 18px;
+    background:var(--grad);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .hero .lede{
+    text-align:center;
+    color:var(--ink);
+    font-size:17px;
+    max-width:420px;
+    margin:0 auto;
+  }
+  .hero .lede strong{font-weight:600;}
+
+  /* ============ SECTIONS ============ */
+  section{padding:50px 0;}
+  .eyebrow{
+    font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--muted);margin-bottom:12px;display:flex;align-items:center;gap:8px;
+  }
+  .eyebrow .dot{width:6px;height:6px;border-radius:50%;}
+
+  .persona{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:20px;
+    padding:30px 24px;
+    margin-bottom:6px;
+  }
+  .persona .tag{
+    display:inline-block;
+    font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;
+    padding:5px 11px;border-radius:100px;background:var(--paper-deep);color:var(--ink);
+    margin-bottom:16px;
+  }
+  .persona h2{
+    font-family:var(--display);font-style:italic;font-weight:500;
+    font-size:clamp(24px,6vw,30px);line-height:1.18;margin:0 0 16px;
+    background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .persona p{margin:0 0 16px;}
+  .persona p:last-child{margin-bottom:0;}
+  .persona .insight{
+    font-size:15.5px;color:var(--muted);font-style:italic;margin-top:18px;
+  }
+
+  .checklist{list-style:none;margin:26px 0 0;padding:0;display:flex;flex-direction:column;gap:14px;}
+  .checklist li{display:flex;gap:13px;align-items:flex-start;font-size:15.5px;}
+  .checklist .ico{
+    flex:0 0 auto;width:24px;height:24px;border-radius:50%;background:var(--green);
+    display:flex;align-items:center;justify-content:center;margin-top:1px;
+  }
+  .checklist .ico svg{width:13px;height:13px;}
+
+  .criteria{
+    display:flex;gap:12px;align-items:flex-start;
+    background:#FBEFD9;border:1px solid #EAD9AB;border-radius:14px;
+    padding:18px 18px;margin:28px 0 8px;font-size:15px;color:#4A3B1A;
+  }
+  .criteria b{color:#2C2210;}
+
+  .book{margin-top:34px;}
+  .book:first-of-type{margin-top:26px;}
+
+  .page{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:3px;
+    padding:38px 28px 30px;
+    position:relative;
+    box-shadow:0 18px 34px -22px rgba(36,28,20,.35);
+  }
+  .page::before{
+    content:"";
+    position:absolute;left:0;top:18px;bottom:18px;width:4px;
+    background:var(--accent);
+    border-radius:0 3px 3px 0;
+  }
+  .page-num{
+    position:absolute;top:18px;right:24px;
+    font-family:var(--mono);font-size:11px;letter-spacing:.06em;
+    color:var(--accent);
+  }
+  .page-folio{
+    font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--muted);margin:0 0 18px;
+  }
+  .page h3{
+    font-family:var(--display);font-weight:600;font-size:25px;line-height:1.18;margin:0 0 4px;
+  }
+  .page .author{
+    font-family:var(--body);font-style:italic;color:var(--muted);font-size:14.5px;margin:0 0 22px;
+  }
+
+  .epigraph{
+    margin:0 0 22px;
+    padding:18px 20px;
+    background:var(--paper-deep);
+    border-radius:2px;
+    position:relative;
+  }
+  .epigraph .qmark{
+    font-family:var(--display);font-size:38px;line-height:0;color:var(--accent);
+    position:absolute;top:22px;left:14px;opacity:.5;
+  }
+  .epigraph p{
+    margin:0 0 8px;padding-left:22px;
+    font-family:var(--display);font-style:italic;font-size:17.5px;line-height:1.45;color:var(--ink);
+  }
+  .epigraph cite{
+    display:block;padding-left:22px;
+    font-family:var(--mono);font-style:normal;font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;
+    color:var(--muted);
+  }
+
+  .page .desc{margin:0;font-size:15.5px;}
+  .page .desc::first-letter{
+    font-family:var(--display);font-weight:600;font-size:46px;line-height:34px;
+    float:left;padding:4px 6px 0 0;color:var(--accent);
+  }
+
+  .note{
+    margin-top:18px;padding-top:16px;border-top:1px dashed var(--line);
+    display:flex;gap:10px;align-items:baseline;
+  }
+  .note-label{
+    flex:0 0 auto;
+    font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;
+    color:var(--accent);
+  }
+  .note p{margin:0;font-size:13.5px;font-style:italic;color:#4a4236;}
+
+  /* patrones de lectura */
+  .patrones{list-style:none;margin:22px 0 0;padding:0;display:flex;flex-direction:column;gap:10px;}
+  .patrones li{
+    font-family:var(--mono);font-size:13px;color:var(--ink);
+    padding:10px 14px;background:var(--paper-deep);border-radius:8px;
+    border-left:3px solid var(--c2);
+  }
+
+  /* contraportada */
+  .backcover{
+    margin-top:20px;background:var(--ink);color:#F4EEE0;
+    border-radius:14px;padding:28px 24px;position:relative;overflow:hidden;
+  }
+  .backcover::before{
+    content:"";position:absolute;right:-20px;bottom:-20px;width:120px;height:120px;
+    border-radius:50%;background:radial-gradient(circle,rgba(140,74,107,.4),transparent 70%);
+  }
+  .backcover .bc-label{
+    font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;
+    color:#9aa0ad;margin-bottom:12px;
+  }
+  .backcover h3{
+    font-family:var(--display);font-style:italic;font-weight:500;
+    font-size:20px;line-height:1.25;margin:0 0 14px;color:#fff;position:relative;z-index:1;
+  }
+  .backcover p{font-size:15px;color:#E3DACA;margin:0;position:relative;z-index:1;}
+
+  /* genero por libro */
+  .genre{
+    display:inline-block;font-family:var(--mono);font-size:10px;letter-spacing:.06em;
+    text-transform:uppercase;padding:4px 9px;border-radius:100px;
+    border:1px solid var(--line);color:var(--muted);margin-bottom:14px;
+  }
+
+  /* links de compra */
+  .buy-row{
+    margin-top:18px;padding-top:16px;border-top:1px dashed var(--line);
+    display:flex;gap:10px;flex-wrap:wrap;align-items:center;
+  }
+  .buy-kindle{
+    display:inline-flex;align-items:center;gap:6px;
+    font-family:var(--mono);font-size:11px;letter-spacing:.04em;text-transform:uppercase;
+    background:var(--accent);color:#fff;padding:7px 13px;border-radius:100px;
+    text-decoration:none;white-space:nowrap;
+  }
+  .buy-physical{
+    font-family:var(--mono);font-size:11px;color:var(--muted);
+  }
+
+  .path{position:relative;padding-left:30px;margin-top:24px;}
+  .path::before{
+    content:"";position:absolute;left:11px;top:6px;bottom:6px;width:2px;
+    background:var(--line);
+  }
+  .step{position:relative;padding-bottom:30px;}
+  .step:last-child{padding-bottom:0;}
+  .step .num{
+    position:absolute;left:-30px;top:0;width:24px;height:24px;border-radius:50%;
+    background:var(--accent);color:#fff;font-family:var(--mono);font-size:11px;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .step h4{font-family:var(--head);font-weight:700;font-size:16px;margin:0 0 6px;}
+  .step p{margin:0;font-size:14.5px;color:var(--muted);}
+
+  .timeline-bar{display:flex;height:10px;border-radius:6px;overflow:hidden;margin:24px 0 8px;}
+  .timeline-bar div{height:100%;}
+  .week-card{
+    display:flex;gap:14px;align-items:flex-start;
+    padding:16px 0;border-bottom:1px solid var(--line);
+  }
+  .week-card:last-child{border-bottom:none;}
+  .week-card .chip{
+    flex:0 0 auto;font-family:var(--mono);font-size:11px;color:#fff;
+    background:var(--accent);padding:5px 9px;border-radius:7px;white-space:nowrap;margin-top:1px;
+  }
+  .week-card h5{font-family:var(--head);font-size:15px;font-weight:700;margin:0 0 4px;}
+  .week-card .pace{font-size:14px;color:var(--ink);margin:0 0 8px;}
+  .week-card .mood{
+    display:inline-block;font-family:var(--mono);font-size:10.5px;letter-spacing:.04em;
+    padding:4px 9px;border-radius:100px;border:1px solid var(--line);color:var(--muted);
+  }
+
+  .closing{
+    background:var(--ink);color:#F4EEE0;border-radius:20px;padding:34px 24px;
+    position:relative;overflow:hidden;
+  }
+  .closing::before{
+    content:"";position:absolute;left:-30px;top:-30px;width:160px;height:160px;border-radius:50%;
+    background:radial-gradient(circle, rgba(217,107,67,.35), transparent 70%);
+  }
+  .closing .label{
+    font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#bdb09a;margin-bottom:14px;position:relative;z-index:1;
+  }
+  .closing blockquote{
+    position:relative;z-index:1;margin:0 0 16px;font-family:var(--display);font-style:italic;
+    font-size:21px;line-height:1.4;color:#fff;
+  }
+  .closing p{position:relative;z-index:1;margin:0 0 14px;font-size:15px;color:#E3DACA;}
+  .closing p:last-child{margin-bottom:0;}
+
+  .referral{
+    background:var(--card);border:1px solid var(--line);border-radius:20px;
+    padding:28px 22px;text-align:center;
+  }
+  .referral p{font-size:15px;color:var(--ink);margin:0 0 20px;}
+  .cta{
+    display:inline-flex;align-items:center;gap:8px;
+    background:var(--c1);color:#fff;font-family:var(--head);font-weight:700;font-size:15px;
+    padding:13px 24px;border-radius:100px;text-decoration:none;
+  }
+
+  footer{
+    padding:40px 0 56px;text-align:center;
+    font-family:var(--mono);font-size:12px;color:var(--muted);
+  }
+  footer svg{margin:0 auto 12px;width:20px;height:20px;opacity:.5;}
+
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease, transform .6s ease;}
+  .reveal.in{opacity:1;transform:translateY(0);}
+
+  @media (prefers-reduced-motion: reduce){
+    .reveal{opacity:1;transform:none;transition:none;}
+    .spine{animation:none;opacity:1;transform:rotate(var(--rot,0deg));}
+    html{scroll-behavior:auto;}
+  }
+
+  @media (min-width:640px){
+    body{font-size:17px;}
+    .persona{padding:38px 34px;}
+  }
+
+  /* ============ DESKTOP: TABS + GRID ============ */
+  .tabbar{display:none;}
+
+  @media (min-width:1024px){
+    .wrap{max-width:920px;padding:0 32px;}
+
+    .hero{padding:48px 0 8px;}
+
+    .tabbar{
+      display:flex;gap:4px;flex-wrap:wrap;
+      position:sticky;top:0;z-index:30;
+      background:var(--paper);
+      padding:18px 0 16px;
+      border-bottom:1px solid var(--line);
+      margin-bottom:0;
+    }
+    .tabbar button{
+      appearance:none;border:none;background:transparent;cursor:pointer;
+      font-family:var(--head);font-weight:700;font-size:13.5px;color:var(--muted);
+      padding:10px 20px;border-radius:100px;transition:background .2s ease,color .2s ease;
+      white-space:nowrap;
+    }
+    .tabbar button:hover{color:var(--ink);}
+    .tabbar button.active{background:var(--ink);color:#fff;}
+
+    .panel{display:none;}
+    .panel.active{display:block;animation:fadeInPanel .35s ease;}
+    @keyframes fadeInPanel{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+
+    section{padding:44px 0 64px;}
+
+    .books-grid{
+      display:grid;grid-template-columns:1fr 1fr;gap:22px 24px;align-items:start;
+    }
+    .book{margin-top:0 !important;}
+    .page{padding:30px 24px 24px;}
+    .page .desc::first-letter{font-size:38px;line-height:30px;}
+
+    .persona{padding:42px 46px;}
+    .persona h2{max-width:600px;}
+
+    .path,.plan > div{max-width:680px;}
+
+    .closer .closing{padding:44px 52px;}
+    .closer-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:24px;align-items:start;}
+    .closer-grid .referral{margin:0;}
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <div class="hero">
+    <div class="brandrow">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 2c0 5 14 5 14 10s-14 5-14 10" stroke="#8C7E68" stroke-width="1.4"/><path d="M19 2c0 5-14 5-14 10s14 5 14 10" stroke="#8C7E68" stroke-width="1.4"/></svg>
+      <span>ADN Lector</span>
+    </div>
+
+    <div class="spines" aria-hidden="true">
+      {% for n in range(5) %}<div class="spine"></div>{% endfor %}
+    </div>
+
+    <h1>Tu ADN Lector</h1>
+    <p class="name">{{ usuario.nombre }}</p>
+    <p class="lede">No es una lista de libros. <strong>Es un mapa de quién sos cuando leés</strong> — y hacia dónde podés ir.</p>
+  </div>
+
+  <nav class="tabbar">
+    <button class="tab-btn active" data-target="panel-perfil">Perfil</button>
+    <button class="tab-btn" data-target="panel-libros">Libros</button>
+    {% if ruta_emocional and ('items' in ruta_emocional or ruta_emocional|length > 0) %}<button class="tab-btn" data-target="panel-ruta">Ruta de lectura</button>{% endif %}
+    {% if plan_lectura and ('items' in plan_lectura or plan_lectura|length > 0) %}<button class="tab-btn" data-target="panel-plan">Plan</button>{% endif %}
+    <button class="tab-btn" data-target="panel-cierre">Cierre</button>
+  </nav>
+
+  <section id="panel-perfil" class="who reveal panel active">
+    <div class="persona">
+      <span class="tag">Tu perfil lector</span>
+      <h2>{{ arquetipo.nombre }}</h2>
+      <p>{{ arquetipo.descripcion }}</p>
+      <p class="insight">{{ arquetipo.insight }}</p>
+
+      {% if patrones %}
+      <ul class="patrones">
+        {% for item in patrones %}
+        <li>{{ item }}</li>
+        {% endfor %}
+      </ul>
+      {% elif busqueda %}
+      <ul class="checklist">
+        {% for item in busqueda %}
+        <li>
+          <span class="ico"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <span>{{ item }}</span>
+        </li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+    </div>
+
+    {% if contraportada %}
+    <div class="backcover">
+      <div class="bc-label">Tu libro</div>
+      <h3>{{ contraportada.titulo }}</h3>
+      <p>{{ contraportada.descripcion }}</p>
+    </div>
+    {% endif %}
+  </section>
+
+  <section id="panel-libros" class="books reveal panel">
+    <div class="eyebrow"><span class="dot" style="background:var(--c1)"></span>{{ libros['items']|length }} libros hechos para vos</div>
+
+    <div class="criteria">
+      <span>🎯</span>
+      <span><b>Criterio de selección:</b> {{ libros.criterio_seleccion }}</span>
+    </div>
+
+    <div class="books-grid">
+    {% for libro in libros['items'] %}
+    {% set accent = ['var(--c0)','var(--c1)','var(--c2)','var(--c3)','var(--c4)'][loop.index0 % 5] %}
+    <article class="book" style="--accent:{{ accent }}">
+      <div class="page">
+        <span class="page-num">{{ "%02d"|format(libro.orden) }} / {{ "%02d"|format(libros['items']|length) }}</span>
+        <p class="page-folio">Recomendación {{ libro.orden }}</p>
+        <h3>{{ libro.titulo }}</h3>
+        <p class="author">{{ libro.autor }}{% if libro.paginas %} · {{ libro.paginas }}{% endif %}</p>
+
+        {% if libro.frase_usuario %}
+        <div class="epigraph">
+          <span class="qmark">"</span>
+          <p>{{ libro.frase_usuario }}</p>
+          <cite>— lo que dijiste vos</cite>
+        </div>
+        {% endif %}
+
+        {% if libro.genero %}
+        <span class="genre">{{ libro.genero }}</span>
+        {% endif %}
+
+        <p class="desc">{{ libro.justificacion }}</p>
+
+        {% if libro.nota_lectura %}
+        <div class="note">
+          <span class="note-label">Nota de lectura</span>
+          <p>{{ libro.nota_lectura }}</p>
+        </div>
+        {% endif %}
+
+        {% if libro.links_compra %}
+        <div class="buy-row">
+          {% if libro.links_compra.kindle and libro.links_compra.kindle.url %}
+          <a class="buy-kindle" href="{{ libro.links_compra.kindle.url }}" target="_blank" rel="noopener">
+            📖 Kindle
+          </a>
+          {% endif %}
+          {% if libro.links_compra.formato_fisico and libro.links_compra.formato_fisico.precio %}
+          <span class="buy-physical">Físico: {{ libro.links_compra.formato_fisico.precio }}</span>
+          {% endif %}
+        </div>
+        {% endif %}
+      </div>
+    </article>
+    {% endfor %}
+    </div>
+  </section>
+
+  {% if ruta_emocional %}
+  {% set ruta_items = ruta_emocional['items'] if 'items' in ruta_emocional else ruta_emocional %}
+  {% set ruta_intro = ruta_emocional['intro'] if 'intro' in ruta_emocional else "" %}
+  <section id="panel-ruta" class="order reveal panel">
+    <div class="eyebrow"><span class="dot" style="background:var(--c2)"></span>Por dónde empezar — ruta emocional</div>
+    {% if ruta_intro %}<p style="margin:0 0 24px;font-size:15.5px;color:var(--muted);font-style:italic;">{{ ruta_intro }}</p>{% endif %}
+    <div class="path">
+      {% for paso in ruta_items %}
+      {% set accent = ['var(--c0)','var(--c1)','var(--c2)','var(--c3)','var(--c4)'][loop.index0 % 5] %}
+      <div class="step" style="--accent:{{ accent }}">
+        <span class="num">{{ loop.index }}</span>
+        <h4>{{ paso.libro }}</h4>
+        <p>{{ paso.transicion }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
+
+  {% if plan_lectura %}
+  {% set plan_items = plan_lectura['items'] if 'items' in plan_lectura else plan_lectura %}
+  {% set plan_intro = plan_lectura['intro'] if 'intro' in plan_lectura else "" %}
+  <section id="panel-plan" class="plan reveal panel">
+    <div class="eyebrow"><span class="dot" style="background:var(--c4)"></span>Plan de lectura</div>
+    <p style="margin:0 0 4px;font-size:15px;color:var(--muted);">{{ plan_intro if plan_intro else "Pensado para sesiones cortas, no maratones." }}</p>
+
+    <div class="timeline-bar" aria-hidden="true">
+      {% for item in plan_items %}
+      {% set accent = ['var(--c0)','var(--c1)','var(--c2)','var(--c3)','var(--c4)'][loop.index0 % 5] %}
+      <div style="width:{{ 100 / plan_items|length }}%;background:{{ accent }}"></div>
+      {% endfor %}
+    </div>
+
+    <div>
+      {% for item in plan_items %}
+      {% set accent = ['var(--c0)','var(--c1)','var(--c2)','var(--c3)','var(--c4)'][loop.index0 % 5] %}
+      <div class="week-card">
+        <span class="chip" style="background:{{ accent }}">SEM {{ item.semanas }}</span>
+        <div>
+          <h5>{{ item.libro }}</h5>
+          <p class="pace">{% if item.paginas_sesion and item.paginas_sesion > 0 %}{{ item.paginas_sesion }} págs/sesión{% endif %}{% if item.momento %} · {{ item.momento }}{% endif %}</p>
+          {% if item.condicion %}<span class="mood">{{ item.condicion|upper }}</span>{% endif %}
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
+
+  <section id="panel-cierre" class="closer reveal panel">
+    <div class="closer-grid">
+      <div class="closing">
+        <div class="label">Una última cosa</div>
+        <p>{{ cierre }}</p>
+      </div>
+
+      {% if viral %}
+      <div class="referral">
+        <p>{{ viral.texto }}</p>
+        <a class="cta" href="{{ viral.link_formulario }}" target="_blank" rel="noopener">Compartí el formulario →</a>
+      </div>
+      {% endif %}
+    </div>
+  </section>
+
+  <footer>
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 2c0 5 14 5 14 10s-14 5-14 10" stroke="currentColor" stroke-width="1.4"/><path d="M19 2c0 5-14 5-14 10s14 5 14 10" stroke="currentColor" stroke-width="1.4"/></svg>
+    Perfil generado por ADN Lector · {{ fecha_generado[:4] if fecha_generado else "2026" }}
+  </footer>
+
+</div>
+
+<script>
+  // Reveal-on-scroll (funciona igual en mobile; en desktop se complementa abajo)
+  const io = ('IntersectionObserver' in window) ? new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.1 }) : null;
+  document.querySelectorAll('.reveal').forEach(el => { io ? io.observe(el) : el.classList.add('in'); });
+
+  // Navegación por tabs (solo tiene efecto visual en desktop vía CSS;
+  // en mobile todas las secciones permanecen visibles igual)
+  const tabBtns = document.querySelectorAll('.tab-btn');
+  function activateTab(targetId){
+    tabBtns.forEach(b => b.classList.toggle('active', b.dataset.target === targetId));
+    document.querySelectorAll('.panel').forEach(p => {
+      const isActive = p.id === targetId;
+      p.classList.toggle('active', isActive);
+      if (isActive) p.querySelectorAll('.reveal').forEach(el => el.classList.add('in'));
+    });
+  }
+  tabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      activateTab(btn.dataset.target);
+      document.querySelector('.tabbar').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+  if (tabBtns.length) activateTab(tabBtns[0].dataset.target);
+</script>
+
+</body>
+</html>

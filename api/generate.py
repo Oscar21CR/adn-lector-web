@@ -13,6 +13,9 @@ TEMPLATE_NAME = "template.html.j2"
 # 90 días de expiración por perfil
 EXPIRY_SECONDS = 60 * 60 * 24 * 90
 
+# Dominio público y estable de producción
+PRODUCTION_URL = "https://adn-lector-web.vercel.app"
+
 
 def render_profile(perfil: dict) -> str:
     env = Environment(loader=FileSystemLoader(TEMPLATE_DIR))
@@ -27,7 +30,12 @@ def get_redis() -> Redis:
 
 
 def build_base_url() -> str:
-    """Detecta automáticamente la URL del deployment de Vercel."""
+    """URL fija de producción; usa VERCEL_URL solo como respaldo en preview/local."""
+    # En producción real, siempre usar el dominio fijo y estable
+    if os.environ.get("VERCEL_ENV") == "production":
+        return PRODUCTION_URL
+
+    # En preview o desarrollo local, usar lo que Vercel asigne dinámicamente
     url = os.environ.get("VERCEL_URL", "")
     if url and not url.startswith("http"):
         url = f"https://{url}"
@@ -35,7 +43,6 @@ def build_base_url() -> str:
 
 
 class handler(BaseHTTPRequestHandler):
-
     def do_OPTIONS(self):
         """Preflight CORS para que Make.com pueda llamar al endpoint."""
         self.send_response(200)
@@ -64,7 +71,6 @@ class handler(BaseHTTPRequestHandler):
             url = f"{base}/api/perfil?id={perfil_id}"
 
             self._json(200, {"ok": True, "url": url, "id": perfil_id})
-
         except Exception as e:
             self._json(500, {"ok": False, "error": str(e)})
 

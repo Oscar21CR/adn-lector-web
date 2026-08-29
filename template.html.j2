@@ -368,8 +368,7 @@
             {% if libro.links_compra and (libro.links_compra.kindle or libro.links_compra.fisico) %}
             <div class="adn-buy-links">
               {% if libro.links_compra.kindle %}
-              <a class="adn-buy-link" href="{{ libro.links_compra.kindle }}" target="_blank" rel="noopener"
-                 style="color:{{ scheme.bg }};border-color:{{ scheme.bg }}40;">
+              <a class="adn-buy-link" href="{{ libro.links_compra.kindle.url }}" target="_blank" rel="noopener"                 style="color:{{ scheme.bg }};border-color:{{ scheme.bg }}40;">
                 📖 Kindle
               </a>
               {% endif %}
